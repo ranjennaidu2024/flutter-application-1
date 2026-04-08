@@ -3,7 +3,8 @@ import 'package:firebase_core/firebase_core.dart';
 //import 'package:flutter_application_1/Screens/text_example.dart';
 //import 'package:flutter_application_1/Screens/text_example_stateful.dart';
 //import 'package:flutter_application_1/home_screen.dart';
-import 'package:flutter_application_1/home_screen_circular_avatar.dart';
+//import 'package:flutter_application_1/home_screen_circular_avatar.dart';
+import 'package:flutter_application_1/home_screen_text_form_field.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -47,7 +48,8 @@ class MyApp extends StatelessWidget {
       //home: const TextExample(),
       //home: const TextExampleStateful(),
       //home: const HomeScreen(),
-      home: const HomeScreenCircularAvatar(),
+      //home: const HomeScreenCircularAvatar(),
+      home: const HomeScreenTextFormField(),
     );
   }
 }

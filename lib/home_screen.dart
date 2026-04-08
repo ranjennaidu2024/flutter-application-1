@@ -12,32 +12,76 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: GestureDetector(
-          onTap: () {
-            log('Button Pressed');
-          },
-          child: Container(
-            height: 50,
-            width: 200,
-            padding: const EdgeInsets.only(top: 15, left: 50),
-            margin: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: Colors.amber,
-              border: Border.all(color: Colors.black, width: 1),
-              borderRadius: BorderRadius.circular(10),
-              boxShadow: const [
-                BoxShadow(
-                  color: Colors.black,
-                  blurRadius: 10,
+    final colorScheme = Theme.of(context).colorScheme;
+
+    return Scaffold(
+      backgroundColor: colorScheme.surface,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          child: Row(
+            children: [
+              Expanded(
+                child: _LoginPanel(
+                  color: const Color(0xFFE53935),
+                  onTap: () => log('Button Pressed'),
                 ),
-              ],
-            ), // BoxDecoration
-            child: const Text('Login Button'),
-          ), // Container
-        ), // GestureDetector
-      ), // Scaffold
-    ); // SafeArea
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: _LoginPanel(
+                  color: const Color(0xFF1E88E5),
+                  onTap: () => log('Button Pressed'),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _LoginPanel extends StatelessWidget {
+  const _LoginPanel({
+    required this.color,
+    required this.onTap,
+  });
+
+  final Color color;
+  final VoidCallback onTap;
+
+  static const double _height = 200;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: color,
+      elevation: 4,
+      shadowColor: Colors.black26,
+      borderRadius: BorderRadius.circular(12),
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(12),
+        child: SizedBox(
+          height: _height,
+          width: double.infinity,
+          child: Center(
+            child: Text(
+              'Login Button',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+                letterSpacing: 0.3,
+                height: 1.2,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }

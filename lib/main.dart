@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter_application_1/Screens/home_screen_stack_widget.dart';
+import 'package:flutter_application_1/Screens/home_screen_list_tile_widget.dart';
+//import 'package:flutter_application_1/Screens/home_screen_stack_widget.dart';
 //import 'package:flutter_application_1/Screens/text_example.dart';
 //import 'package:flutter_application_1/Screens/text_example_stateful.dart';
 //import 'package:flutter_application_1/home_screen.dart';
@@ -51,7 +52,8 @@ class MyApp extends StatelessWidget {
       //home: const HomeScreen(),
       //home: const HomeScreenCircularAvatar(),
       //home: const HomeScreenTextFormField(),
-      home: const HomeScreenStackWidget(),
+      //home: const HomeScreenStackWidget(),
+      home: const HomeScreenListTileWidget(),
     );
   }
 }
